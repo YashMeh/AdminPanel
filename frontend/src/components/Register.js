@@ -1,0 +1,65 @@
+import React,{Component} from 'react';
+class Register extends Component{
+    state={username:'',email:'',password:''}
+    onSubmitListener=(event)=>{
+        event.preventDefault();
+        this.props.onSubmit(this.state);
+    }
+    onChangeListener=(e)=>{
+        this.setState(
+            {
+                [e.target.name]: e.target.value
+            }
+        )
+    }
+    render()
+    {
+        return(
+        <div>
+            <form onSubmit={this.onSubmitListener}>
+                <label>
+                    Name:
+                </label>
+                <input type="text"
+                       name="username"
+                       placeholder="Enter Username"
+                       onChange={this.onChangeListener}
+                />       
+                <br />
+                <br />
+                <label>
+                    Email:
+                </label>
+                <input type="text"
+                       name="email"
+                       placeholder="Enter Email"
+                       onChange={this.onChangeListener}
+                />
+                <br />
+                <br />
+                      
+                <label>
+                    Password:
+                </label>
+                <input type="password"
+                       name="password"
+                       placeholder="Enter Password"
+                       onChange={this.onChangeListener}
+                />  
+                <br />
+                <br />
+                   
+                <input type="submit"
+                       value="REGISTER"
+                />       
+                  
+                
+                
+
+            </form>
+        </div>
+        )
+    }
+}
+
+export default Register;
