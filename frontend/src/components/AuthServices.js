@@ -4,7 +4,7 @@ import decode from 'jwt-decode';
 class AuthServices{
     
     register=async (name,email,password)=>{
-        return axios.post("http://localhost:3000/api/register",{
+        return axios.post("http://localhost:8080/api/register",{
             name:name,
             email:email,
             password:password
@@ -17,7 +17,7 @@ class AuthServices{
         })
     }
     login=async (email,password)=>{
-        return axios.post("http://localhost:3000/api/login",{
+        return axios.post("http://localhost:8080/api/login",{
             email:email,
             password:password
             
