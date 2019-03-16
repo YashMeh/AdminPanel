@@ -13,6 +13,7 @@ var userSchema=new mongoose.Schema({
         required:true,
         type:String
     },
+    //One to many relation between user and projects
     projects:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"project"
