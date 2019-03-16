@@ -2,29 +2,56 @@ const express=require("express");
 const router=express.Router();
 const jwtVerify=require("./verifyTokens");
 const Project=require("../models/project");
-const User=require("../models/user")
+const User=require("../models/user");
 
-router.get("/:userid",jwtVerify,(req,res)=>{
+var giveDetailsOfProject=(arr)=>{
+    var projectDetails=[]
+    return new Promise((resolve,reject)=>{
+        arr.map((element,index,arr)=>{
+            Project.findById(element).then((project)=>{
+                projectDetails.push(project)
+                if(projectDetails.length===arr.length)
+                {
+                    resolve(projectDetails)
+                }
+            })  
+           
+        })
+    })
+}
+//Get all the projects of a particular user
+router.get("/:userid/all",jwtVerify,(req,res)=>{
     var userId=req.params.userid;
-    User.find({_id:userId}).then((user)=>{
-        res.json(user[0].projects);
-    }).catch((err)=>{
-        throw err;
-    })    
+    User.findById(userId).then((user)=>{
+        giveDetailsOfProject(user.projects).then((response)=>{
+            res.json(response)
+        })
+    })
+        
 
 })
-router.post("/:userid",jwtVerify,(req,res)=>{
+//Post a new project for a particular user
+router.post("/:userid/new",jwtVerify,(req,res)=>{
     var userId=req.params.userid;
     var projectName=req.body.name;
     var project={name:projectName};
-    User.find({_id:userId}).then((user)=>{
+    User.findById(userId).then((user)=>{
         Project.create(project).then((newProject)=>{
-            user[0].projects.push(newProject);
-            user[0].save();
-            var userObj={name:user[0].name,email:user[0].email,projects:user[0].projects}
+            user.projects.push(newProject);
+            user.save();
+            var userObj={name:user.name,email:user.email,projects:user.projects}
             res.json(userObj)
         })
     })
 })
+//Get the details of a particular project
+router.get("/:projectid",jwtVerify,(req,res)=>{
+    var projectId=req.params.projectid;
+    Project.find({_id:projectId}).then((project)=>{
+        res.json(project);
+    })
+
+})
+
 
 module.exports=router;
