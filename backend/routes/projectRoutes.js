@@ -32,6 +32,7 @@ router.get("/:userid/all",jwtVerify,(req,res)=>{
 })
 //Post a new project for a particular user
 router.post("/:userid/new",jwtVerify,(req,res)=>{
+    console.log(req.headers)
     var userId=req.params.userid;
     var projectName=req.body.name;
     var project={name:projectName};
@@ -46,6 +47,7 @@ router.post("/:userid/new",jwtVerify,(req,res)=>{
 })
 //Get the details of a particular project
 router.get("/:projectid",jwtVerify,(req,res)=>{
+   
     var projectId=req.params.projectid;
     Project.find({_id:projectId}).then((project)=>{
         res.json(project);

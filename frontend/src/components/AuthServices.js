@@ -10,7 +10,7 @@ class AuthServices{
             password:password
         }).then((res)=>{
             //Do something with the response
-            console.log(res);
+            //console.log(res);
             
         }).catch((err)=>{
             throw err;
