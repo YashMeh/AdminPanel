@@ -23,6 +23,7 @@ app.use(helmet());
 
 // use bodyParser to parse application/json content-type
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}))
 
 // enable all CORS requests
 app.use(cors());
@@ -33,10 +34,12 @@ app.use(morgan('combined'));
 //Requiring Routes
 const userRoutes=require("./routes/userRoutes")
 const projectRoutes=require("./routes/projectRoutes")
+const deviceRoutes=require("./routes/deviceRoutes")
 
 //Using Routes
 app.use("/api",userRoutes)
 app.use("/project",projectRoutes)
+app.use("/device",deviceRoutes)
 
 //Starting the server
 app.listen(port,(err)=>{

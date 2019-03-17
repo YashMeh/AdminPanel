@@ -45,15 +45,7 @@ router.post("/:userid/new",jwtVerify,(req,res)=>{
         })
     })
 })
-//Get the details of a particular project
-router.get("/:projectid",jwtVerify,(req,res)=>{
-   
-    var projectId=req.params.projectid;
-    Project.find({_id:projectId}).then((project)=>{
-        res.json(project);
-    })
 
-})
 
 
 module.exports=router;
