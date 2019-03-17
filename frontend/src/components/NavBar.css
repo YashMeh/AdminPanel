@@ -1,0 +1,15 @@
+#logout{
+    margin-left: 85%;
+    margin-top:5%;
+}
+.footer {
+    position: fixed;
+    right: 500px;
+    bottom: 10px;
+    width: 100%;
+    color:black;
+    text-align: center;
+  }
+  .f1{
+    margin-left: 20px;
+}

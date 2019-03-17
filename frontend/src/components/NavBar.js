@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
-import {Link,withRouter} from 'react-router-dom';
 import AuthServices from './AuthServices';
+import './NavBar.css';
 
 class NavBar extends Component{
     constructor()
@@ -13,24 +13,25 @@ class NavBar extends Component{
         this.props.history.replace("/");
     }
     renderContent=()=>{
-        if(!this.Auth.loggedIn())
-        {
             return(
                 <div>
-                <Link to="/" >HOME</Link>
-                <Link to="/register" >REGISTER</Link>
-                <Link to="/login" >LOGIN</Link>
+                <button className="ui inverted secondary button" id="logout" onClick={this.handleLogout} >
+                Logout<i className="sign out alternate icon"></i>
+                </button>
+                <div className="footer">
+            <a href="https://github.com/scorelab/senz">
+            Source Code
+            </a>
+            <a href="/err" className="f1">
+                Terms
+            </a>
+            <a href="/err" className="f1">
+                Privacy
+            </a>
+            </div>
                 </div>
             )
-        }
-        else{
-            return(
-                <div>
-                <button onClick={this.handleLogout} >LOGOUT</button>
-                <div>Hey,{this.Auth.getProfile().name}</div>
-                </div>
-            )
-        }
+        
     }
     render()
     {
