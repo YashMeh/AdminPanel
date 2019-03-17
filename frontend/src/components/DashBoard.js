@@ -4,6 +4,8 @@ import AuthServices from './AuthServices';
 import axios from 'axios';
 import ProjectList from './ProjectList';
 import AddProject from './AddProject';
+import NavBar from './NavBar';
+
 class DashBoard extends Component{
     
     constructor()
@@ -49,7 +51,8 @@ class DashBoard extends Component{
         if(!this.state.addNew)
         {
             return (
-                <div>
+            <div>
+            <NavBar />
             <ProjectList projects={this.state.projects} />
             <button onClick={this.handleAddNew}>ADD NEW PROJECT</button>
             </div>
@@ -59,6 +62,7 @@ class DashBoard extends Component{
         {
             return (
                 <div>
+                    <NavBar />    
                     <AddProject onSubmit={this.handleSubmit} />
                 </div>
             )

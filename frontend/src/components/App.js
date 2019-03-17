@@ -2,11 +2,11 @@ import React,{Component} from 'react';
 import Register from './Register';
 import Login from './Login';
 import {Route,Switch,withRouter} from 'react-router-dom';
-import Home from './Home';
 import AuthServices from './AuthServices';
-import NavBar from './NavBar';
 import DashBoard from './DashBoard';
 import Project from './Project';
+import Error from './Error'
+
 class App extends Component{
    constructor(){
         super()
@@ -30,15 +30,16 @@ class App extends Component{
     {
         return (
             <div>
-            <NavBar />    
             <Switch>
-                    <Route exact path="/" component={Home} />
+                    <Route exact path="/" 
+                     render={(props) => <Register {...props} onSubmit={this.handleSubmitRegister} />} />
                     <Route path="/register" 
                      render={(props) => <Register {...props} onSubmit={this.handleSubmitRegister} />} />
                      <Route exact path="/login" 
                      render={(props) => <Login {...props} onSubmit={this.handleSubmitLogin} />} />
                      <Route exact path="/dashboard" component={DashBoard} />
                      <Route path="/device/:projectId" component={Project} />
+                     <Route path="/err" component={Error} />
             </Switch>
             </div>
         )

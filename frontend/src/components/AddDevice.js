@@ -16,6 +16,7 @@ class AddDevice extends Component{
     render()
     {
         return(
+            <div>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Name:
@@ -35,8 +36,9 @@ class AddDevice extends Component{
                 onChange={this.handleChange} />
                 <br />
                 <br />
-                <input type="submit" value="ADD PROJECT" />
+                <input type="submit" value="ADD DEVICE" />
             </form>
+            </div>
         )
     }
 }

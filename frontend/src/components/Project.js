@@ -4,6 +4,7 @@ import axios from 'axios';
 import AuthServices from './AuthServices';
 import DeviceList from './DeviceList';
 import AddDevice from './AddDevice'
+import NavBar from './NavBar';
 
 class Project extends Component{
     
@@ -50,6 +51,7 @@ class Project extends Component{
         {
             return(
                 <div>
+                <NavBar />
                 <DeviceList devices={this.state.devices} />
                 <button onClick={this.handleAddNewDevice}>ADD NEW DEVICE</button>
                 </div>
@@ -58,8 +60,11 @@ class Project extends Component{
         else
         {
             return(
+                <div>
+                <NavBar />    
                 <AddDevice onSubmit={this.handleSubmit} />
-            )
+                </div>
+            )   
         }
     }
     render()

@@ -16,6 +16,7 @@ class AddProject extends Component{
     render()
     {
         return(
+            <div>
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Name:
@@ -28,6 +29,7 @@ class AddProject extends Component{
                 <br />
                 <input type="submit" value="ADD PROJECT" />
             </form>
+            </div>
         )
     }
 }
