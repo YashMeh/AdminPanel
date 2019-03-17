@@ -32,7 +32,6 @@ router.get("/:userid/all",jwtVerify,(req,res)=>{
 })
 //Post a new project for a particular user
 router.post("/:userid/new",jwtVerify,(req,res)=>{
-    console.log(req.headers)
     var userId=req.params.userid;
     var projectName=req.body.name;
     var project={name:projectName};

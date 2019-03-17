@@ -6,6 +6,7 @@ import Home from './Home';
 import AuthServices from './AuthServices';
 import NavBar from './NavBar';
 import DashBoard from './DashBoard';
+import Project from './Project';
 class App extends Component{
    constructor(){
         super()
@@ -34,9 +35,10 @@ class App extends Component{
                     <Route exact path="/" component={Home} />
                     <Route path="/register" 
                      render={(props) => <Register {...props} onSubmit={this.handleSubmitRegister} />} />
-                     <Route path="/login" 
+                     <Route exact path="/login" 
                      render={(props) => <Login {...props} onSubmit={this.handleSubmitLogin} />} />
-                     <Route path="/dashboard" component={DashBoard} />
+                     <Route exact path="/dashboard" component={DashBoard} />
+                     <Route path="/device/:projectId" component={Project} />
             </Switch>
             </div>
         )

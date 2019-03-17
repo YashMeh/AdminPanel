@@ -8,7 +8,8 @@ var projectSchema=new mongoose.Schema({
     devices:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"device"
-    }]
+    }],
+    date:{type:Date,default:Date.now}
     
 })
 

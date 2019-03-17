@@ -8,7 +8,8 @@ var deviceSchema=new mongoose.Schema({
     pubkey:{
         required:true,
         type:String
-    }
+    },
+    date:{type:Date,default:Date.now}
     
 })
 
