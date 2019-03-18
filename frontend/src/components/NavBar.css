@@ -1,7 +1,4 @@
-#logout{
-    margin-left: 85%;
-    margin-top:5%;
-}
+
 .footer {
     position: fixed;
     right: 500px;
@@ -12,4 +9,23 @@
   }
   .f1{
     margin-left: 20px;
+}
+#logout{
+    margin-left: 75%;
+    float: left;
+    position: absolute;
+    margin-top: 2%;
+    
+}
+#cnav{
+    background:#212325;
+    height: 80px;
+}
+#navheading{
+    color: white;
+    margin-left : 20px;
+    float:left;
+    margin-top: 2%;
+    font-family: 'Lilita One', cursive;
+    font-size: 50px;
 }

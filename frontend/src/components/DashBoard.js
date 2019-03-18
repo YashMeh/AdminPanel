@@ -54,7 +54,13 @@ class DashBoard extends Component{
             <div>
             <NavBar />
             <ProjectList projects={this.state.projects} />
-            <button onClick={this.handleAddNew}>ADD NEW PROJECT</button>
+            <button 
+            onClick={this.handleAddNew}
+            className="ui inverted blue button"
+            id="addNew"
+            style={{position:"absolute",right:"20%",top:"4%"}}
+            >Add Project<i className="plus icon"></i>
+            </button>
             </div>
             )
         }

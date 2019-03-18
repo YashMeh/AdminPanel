@@ -1,0 +1,17 @@
+.ct{
+    position: absolute;
+    top:15%;
+    left: 5%;
+
+}
+
+.cw{
+    height: 120px;
+}
+
+.header{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top:5%;
+    margin-left:5%;
+}

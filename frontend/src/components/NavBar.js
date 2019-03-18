@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import AuthServices from './AuthServices';
 import './NavBar.css';
 
@@ -14,8 +15,9 @@ class NavBar extends Component{
     }
     renderContent=()=>{
             return(
-                <div>
-                <button className="ui inverted secondary button" id="logout" onClick={this.handleLogout} >
+                <div id="cnav">
+                <div id="navheading">SenZ</div>
+                <button className="ui inverted red button" id="logout" onClick={this.handleLogout} >
                 Logout<i className="sign out alternate icon"></i>
                 </button>
                 <div className="footer">
