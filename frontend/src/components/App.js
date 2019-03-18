@@ -33,13 +33,14 @@ class App extends Component{
             <Switch>
                     <Route exact path="/" 
                      render={(props) => <Register {...props} onSubmit={this.handleSubmitRegister} />} />
-                    <Route path="/register" 
+                    <Route exact path="/register" 
                      render={(props) => <Register {...props} onSubmit={this.handleSubmitRegister} />} />
                      <Route exact path="/login" 
                      render={(props) => <Login {...props} onSubmit={this.handleSubmitLogin} />} />
                      <Route exact path="/dashboard" component={DashBoard} />
-                     <Route path="/device/:projectId" component={Project} />
-                     <Route path="/err" component={Error} />
+                     <Route exact path="/device/:projectId" component={Project} />
+                     <Route exact path="/err" component={Error} />
+                     
             </Switch>
             </div>
         )

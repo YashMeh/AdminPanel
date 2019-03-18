@@ -1,0 +1,22 @@
+.ct{
+    position: absolute;
+    top:15%;
+    left: 5%;
+
+}
+
+.cw{
+    height: 220px;
+}
+
+.header{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top:5%;
+    margin-left:5%;
+    margin-bottom: 2%;
+}
+.meta{
+    margin-left: 5%;
+    
+}

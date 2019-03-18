@@ -16,18 +16,29 @@ class AddProject extends Component{
     render()
     {
         return(
-            <div>
+            <div  id="outer">
             <form onSubmit={this.handleSubmit}>
+                <div id="heading">
+                Add
+                </div>
+                <br />
+                <br />
+                <br />
                 <label>
                     Name:
                 </label>
+                <div className="ui input focus">
                 <input type="text" 
                 placeholder="Enter name"
                 name="name"
                 onChange={this.handleChange} />
+                </div>
                 <br />
                 <br />
-                <input type="submit" value="ADD PROJECT" />
+                <input type="submit" 
+                value="ADD PROJECT"
+                className="ui inverted secondary button"
+                style={{marginLeft:35}} />
             </form>
             </div>
         )

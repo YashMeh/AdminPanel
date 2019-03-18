@@ -53,7 +53,10 @@ class Project extends Component{
                 <div>
                 <NavBar />
                 <DeviceList devices={this.state.devices} />
-                <button onClick={this.handleAddNewDevice}>ADD NEW DEVICE</button>
+                <button onClick={this.handleAddNewDevice}
+                style={{position:"absolute",right:"20%",top:"4%"}}
+                className="ui inverted blue button"
+                >ADD NEW DEVICE<i className="plus icon"></i></button>
                 </div>
             )
         }

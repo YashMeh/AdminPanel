@@ -1,0 +1,19 @@
+label{
+    font-size: 20px;
+    font-weight: bold;
+}
+#outer{
+    position : absolute;    
+    left     : 50%;
+    top      : 40%;
+    height: 2000px;
+    width: 200px;
+    margin-left : -100px; /* half of the width  */
+    margin-top  : -100px;
+}
+#heading{
+    font-family: 'Lilita One', cursive;
+    font-size: 100px;
+    text-align: center;
+    
+}
