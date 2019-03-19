@@ -1,5 +1,5 @@
 ## Description
-This is the API which contains JWT endpoints for authentication purposes and also contain information of various projects and devices of the user.
+This is the backend part of the senz admin panel built using NodeJS
 
 ### Installation
 
@@ -21,5 +21,6 @@ BaseURL = http://localhost:8080
 Registration = BaseURL/register
 
 Login        =BaseURL/login
+
 
 
