@@ -3,5 +3,5 @@ This is a project to implement senz Admin panel .
 
 ### Checkout for further details
 
--   [Backend](senzAdminPanel/backend/README.md)
--   [Frontend](senzAdminPanel/frontend/README.md)
+-   [Backend](/backend/README.md)
+-   [Frontend](/frontend/README.md)
