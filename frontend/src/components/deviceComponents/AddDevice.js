@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './AddDevice.css'
+import '../Styling/AddDevice.css';
 
 class AddDevice extends Component{
     state={name:'',pubkey:''}

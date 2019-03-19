@@ -1,10 +1,10 @@
 import React from 'react';
-import "./DeviceList.css"
+import "../Styling/DeviceList.css";
 
 const DeviceList=(props)=>{
     const dList=props.devices.map((device)=>{
         return (
-        <div key={device._id} className="card cw">
+        <div key={device._id} className="card cwd">
         <div className="content">
             <div className="header">Name: {device.name}</div>
             <div className="meta">Public Key: {device.pubkey}</div>

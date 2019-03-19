@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
-import withAuth from './withAuth';
+import withAuth from '../AuthServices/withAuth';
 import axios from 'axios';
-import AuthServices from './AuthServices';
-import DeviceList from './DeviceList';
-import AddDevice from './AddDevice'
-import NavBar from './NavBar';
+import AuthServices from '../AuthServices/AuthServices';
+import DeviceList from '../deviceComponents/DeviceList';
+import AddDevice from '../deviceComponents/AddDevice';
+import NavBar from '../NavBar';
 
 class Project extends Component{
     

@@ -1,7 +1,7 @@
 import React,{Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import AuthServices from './AuthServices';
-import './NavBar.css';
+import AuthServices from './AuthServices/AuthServices';
+import './Styling/NavBar.css';
 
 class NavBar extends Component{
     constructor()

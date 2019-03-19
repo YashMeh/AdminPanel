@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
-import Register from './Register';
-import Login from './Login';
+import Register from './userComponents/Register';
+import Login from './userComponents/Login';
 import {Route,Switch,withRouter} from 'react-router-dom';
-import AuthServices from './AuthServices';
+import AuthServices from './AuthServices/AuthServices';
 import DashBoard from './DashBoard';
-import Project from './Project';
+import Project from './projectComponents/Project';
 import Error from './Error'
 
 class App extends Component{

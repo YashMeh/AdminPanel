@@ -1,9 +1,9 @@
 import React,{Component} from 'react';
-import withAuth from './withAuth';
-import AuthServices from './AuthServices';
+import withAuth from './AuthServices/withAuth';
+import AuthServices from './AuthServices/AuthServices';
 import axios from 'axios';
-import ProjectList from './ProjectList';
-import AddProject from './AddProject';
+import ProjectList from './projectComponents/ProjectList';
+import AddProject from './projectComponents/AddProject';
 import NavBar from './NavBar';
 
 class DashBoard extends Component{

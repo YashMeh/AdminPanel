@@ -1,5 +1,5 @@
 import React,{Component} from 'react';
-import './Register.css'
+import '../Styling/Register.css';
 class Register extends Component{
     state={username:'',email:'',password:''}
     onSubmitListener=(event)=>{
