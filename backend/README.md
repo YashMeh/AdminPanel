@@ -22,5 +22,9 @@ Registration = BaseURL/register
 
 Login        =BaseURL/login
 
+Dashboard    =BaseURL/dashboard
+
+
+
 
 
