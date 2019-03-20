@@ -1,7 +1,7 @@
-#### Description
+### Description
 This is a project to implement senz Admin panel .
 
-FrontEnd => http://localhost:3000
+### Checkout for further details
 
-BackEnd  => http://localhost:8080
-
+-   [Backend](/backend/README.md)
+-   [Frontend](/frontend/README.md)
