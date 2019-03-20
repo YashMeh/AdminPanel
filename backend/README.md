@@ -8,11 +8,20 @@ It uses JWT for authentication,morgan for logging,helmet for security and expres
 cd backend
 npm install
 ```
+### Pre Running Step
+
+- Create a .env file in the /backend directory and add.
+
+```javascript
+secretKey='YOUR_SECRET_KEY'
+URI      ='YOUR_MONGODB_URI'
+
+```
 
 ### Running
 
 ```bash
-node main.js
+npm run dev
 ```
 
 ### Endpoints

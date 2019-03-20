@@ -9,9 +9,8 @@ const helmet = require('helmet');
 const morgan = require('morgan');
 dotenv.config();
 
-//Database configuration
-//const URI=process.env.URI || "mongodb://localhost/senzAdmin";
-const URI="mongodb://mongo:27017/test"
+//Database URI configuration 
+const URI=process.env.URI || "mongodb://mongo:27017/senzAdmin";
 mongoose.connect(URI,{useNewUrlParser:true}).then((e)=>{
     console.log("Database Connected");
 }).catch((err)=>{
