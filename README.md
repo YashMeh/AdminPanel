@@ -2,7 +2,13 @@
 This is a project to implement senz Admin panel .
 
 
-### How to run using docker
+### Install frontend and backend dependencies using their respective readme
+
+-   [Backend](/backend/README.md)
+-   [Frontend](/frontend/README.md)
+
+### Run using docker (Once dependencies are installed)
+
 - Attach to containers using
 
 ```bash
@@ -13,16 +19,15 @@ docker-compose build
 
 ```bash
 docker-compose up
-
 ```
+
 - Remove containers using
 
 ```bash
-docker-container down
+docker-compose down
 ```
 
-### Running without docker
-#### Checkout for further details
+### Run without docker
 
--   [Backend](/backend/README.md)
--   [Frontend](/frontend/README.md)
+- Run the backend part.(PORT=8080)
+- Run the frontend part.(PORT=3000)
