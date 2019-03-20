@@ -10,7 +10,8 @@ const morgan = require('morgan');
 dotenv.config();
 
 //Database configuration
-const URI=process.env.URI || "mongodb://localhost/senzAdmin";
+//const URI=process.env.URI || "mongodb://localhost/senzAdmin";
+const URI="mongodb://mongo:27017/test"
 mongoose.connect(URI,{useNewUrlParser:true}).then((e)=>{
     console.log("Database Connected");
 }).catch((err)=>{

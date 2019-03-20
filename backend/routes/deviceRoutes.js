@@ -25,7 +25,6 @@ var giveDeviceDet=(arr)=>{
 router.get("/:projectId",jwtVerify,(req,res)=>{
     var projectId=req.params.projectId;
     Project.findById(projectId).then((foundProject)=>{
-        console.log(foundProject)
         giveDeviceDet(foundProject.devices).then((deviceDet)=>{
             res.json(deviceDet)
         })
@@ -35,7 +34,6 @@ router.get("/:projectId",jwtVerify,(req,res)=>{
 //Post the device for a specific project
 router.post("/:projectId",jwtVerify,(req,res)=>{
     var device=req.body;
-    console.log(device)
     var projectId=req.params.projectId;
     Device.create(device).then((newDevice)=>{
         Project.findById(projectId).then((project)=>{

@@ -49,9 +49,5 @@ router.post('/login', function(req, res) {
   router.get('/logout', function(req, res) {
     res.status(200).send({ auth: false, token: null});
   });  
-  router.get("/",(req,res)=>{
-    User.find().then((allUsers)=>{
-      res.json(allUsers)
-    })
-  })
+  
 module.exports=router
