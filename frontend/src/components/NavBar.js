@@ -23,7 +23,7 @@ class NavBar extends Component{
                 <button className="ui inverted red button" id="logout" onClick={this.handleLogout} >
                 Logout<i className="sign out alternate icon"></i>
                 </button>
-                <div className="footer">
+                <div className="footer" style={{right:"1%",bottom:15}}>
             <a href="https://github.com/scorelab/senz">
             Source Code
             </a>

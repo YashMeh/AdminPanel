@@ -23,7 +23,7 @@ class Register extends Component{
         <div id="outer">
             
             <form onSubmit={this.onSubmitListener}>
-            <div id="heading">
+            <div id="heading" style={{fontSize:80}}>
                 SenZ
             </div>
             <br />
@@ -32,7 +32,7 @@ class Register extends Component{
                 <label>
                     Name:
                 </label>
-                <div className="ui input focus">
+                <div className="ui input focus" style={{width:200}}>
                 <input type="text"
                        name="username"
                        placeholder="Enter Username"
@@ -45,7 +45,7 @@ class Register extends Component{
                 <label>
                     Email:
                 </label>
-                <div className="ui input focus">
+                <div className="ui input focus" style={{width:200}}>
                 <input type="text"
                        name="email"
                        placeholder="Enter Email"
@@ -58,7 +58,7 @@ class Register extends Component{
                 <label>
                     Password:
                 </label>
-                <div className="ui input focus">
+                <div className="ui input focus" style={{width:200}}>
                 <input type="password"
                        name="password"
                        placeholder="Enter Password"
@@ -71,17 +71,17 @@ class Register extends Component{
                 <input type="submit"
                        value="REGISTER"
                        className="ui inverted secondary button"
-                       style={{marginLeft:35}}
+                       style={{width:200}}
                 /> 
                 <br />
                 <br />
-                <a href="/login">Already have an account ?</a>      
+                <a href="/login" style={{marginLeft:15}}>Already have an account ?</a>      
                   
                 
                 
 
             </form>
-            <div className="footer">
+            <div className="footer" style={{right:5,bottom:15}}>
             <a href="https://github.com/scorelab/senz">
             Source Code
             </a>

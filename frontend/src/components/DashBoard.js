@@ -61,7 +61,7 @@ class DashBoard extends Component{
             onClick={this.handleAddNew}
             className="ui inverted blue button"
             id="addNew"
-            style={{position:"absolute",right:"20%",top:"4%"}}
+            style={{position:"absolute",right:"100px",top:"20px"}}
             >Add Project<i className="plus icon"></i>
             </button>
             </div>

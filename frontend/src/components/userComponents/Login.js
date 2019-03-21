@@ -22,7 +22,7 @@ class Login extends Component{
         return(
         <div id="outer">
             <form onSubmit={this.onSubmitListener}>
-            <div id="heading">
+            <div id="heading" style={{fontSize:80}}>
                 Login
             </div>
             <br />
@@ -31,7 +31,7 @@ class Login extends Component{
                 <label>
                     Email:
                 </label>
-                <div className="ui input focus" >
+                <div className="ui input focus" style={{width:200}} >
                 <input type="text"
                        name="email"
                        placeholder="Enter Email"
@@ -44,7 +44,7 @@ class Login extends Component{
                 <label>
                     Password:
                 </label>
-                <div className="ui input focus">
+                <div className="ui input focus" style={{width:200}}>
                 <input type="password"
                        name="password"
                        placeholder="Enter Password"
@@ -58,14 +58,14 @@ class Login extends Component{
                 <input type="submit"
                        value="LOGIN"
                        className="ui inverted secondary button"
-                       style={{marginLeft:35}}
+                       style={{width:200}}
                 />       
                   
                 
                 
 
             </form>
-            <div className="footer">
+            <div className="footer" style={{right:10,bottom:15}}>
             <a href="https://github.com/scorelab/senz">
             Source Code
             </a>

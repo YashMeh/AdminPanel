@@ -25,7 +25,7 @@ class AddDevice extends Component{
         return(
             <div id="outer">
             <form onSubmit={this.handleSubmit}>
-            <div id="heading">
+            <div id="heading" style={{fontSize:80}}>
                 Add 
             </div>
             <br />
@@ -34,7 +34,7 @@ class AddDevice extends Component{
                 <label>
                     Name:
                 </label>
-                <div className="ui input focus">
+                <div className="ui input focus" style={{width:200}}>
                 <input type="text" 
                 placeholder="Enter name"
                 name="name"
@@ -45,7 +45,7 @@ class AddDevice extends Component{
                 <label>
                     Public Key:
                 </label>
-                <div className="ui input focus">
+                <div className="ui input focus" style={{width:200}}>
                 <input type="text" 
                 placeholder="Enter public key"
                 name="pubkey"
@@ -56,7 +56,7 @@ class AddDevice extends Component{
                 <input type="submit"
                  value="ADD DEVICE"
                  className="ui inverted secondary button"
-                 style={{marginLeft:35}} />
+                 style={{width:200}} />
             </form>
             </div>
         )

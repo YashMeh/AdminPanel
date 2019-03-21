@@ -25,7 +25,7 @@ const ProjectList=(props)=>{
             </Link>
             <Link to={`/project/${userId}/delete/${project._id}`}>
             <button className="ui inverted red button" 
-            style={{marginLeft:"25%"}}
+            style={{float:"right"}}
             >Delete
             </button>
             </Link>
