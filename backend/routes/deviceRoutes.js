@@ -26,8 +26,8 @@ router.post("/:projectId",jwtVerify,(req,res)=>{
         newDevice.save()
     })
 })
-//Delete the device of a particular project
-router.delete("/delete/:deviceId",(req,res)=>{
+//Delete a particular device
+router.delete("/delete/:deviceId",jwtVerify,(req,res)=>{
     Device.findByIdAndDelete(req.params.deviceId).then((deletedDevice)=>{
         Project.findById(deletedDevice.project.id).then((foundProject)=>{
             foundProject.devices.remove(req.params.deviceId)

@@ -1,4 +1,7 @@
 var mongoose=require("mongoose");
+/*
+This is the basic device schema which will be modified during the course of the project 
+*/
 
 var deviceSchema=new mongoose.Schema({
     name:{

@@ -1,5 +1,9 @@
 const jwt = require('jsonwebtoken');
 
+/*
+This is the middleware function to protect all the 
+routes
+*/
 function verifyToken(req, res, next) {
 var token = req.headers['authorization'];
   if (!token)

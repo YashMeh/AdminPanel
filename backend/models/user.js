@@ -1,5 +1,9 @@
 var mongoose=require("mongoose");
 
+/*
+This is the user schema,it will contain list of projects for 
+a particular user
+*/
 var userSchema=new mongoose.Schema({
     name:{
         required:true,

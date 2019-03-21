@@ -3,6 +3,8 @@ const router=express.Router();
 const User=require("../models/user");
 const bcrypt = require('bcryptjs');
 const jwt=require("jsonwebtoken");
+
+//Register a new user
 router.post("/register",function(req,res){
     var {name,email,password}=req.body;
     if((name=='' || email=='' || password=='')||(name==undefined || email==undefined || password==undefined))
@@ -21,11 +23,13 @@ router.post("/register",function(req,res){
         var token = jwt.sign({id:user._id,name:user.name}, process.env.secretKey, {
             expiresIn: 86400 // expires in 24 hours
           });
-          res.status(200).send({ auth: true, token: token});
+          res.status(200).send("Registered");
 
     })
   }
 })
+
+//Login an existing user
 router.post('/login', function(req, res) {
     var {email,password}=req.body;
     console.log(password)
@@ -46,6 +50,8 @@ router.post('/login', function(req, res) {
     });
   }
   });
+
+  //Logout a user
   router.get('/logout', function(req, res) {
     res.status(200).send({ auth: false, token: null});
   });  

@@ -28,7 +28,7 @@ router.post("/:userid/new",jwtVerify,(req,res)=>{
 })
 
 //Delete a particular project of a particular user
-router.delete("/:userId/delete/:projectId",(req,res)=>{
+router.delete("/:userId/delete/:projectId",jwtVerify,(req,res)=>{
     var userId=req.params.userId;
     var projectId=req.params.projectId;
     User.findById(userId).then((user)=>{
