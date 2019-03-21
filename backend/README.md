@@ -14,7 +14,7 @@ npm install
 
 ```javascript
 secretKey='YOUR_SECRET_KEY'
-URI      ='YOUR_MONGODB_URI'
+URI      ='YOUR_MONGODB_URI' ( ** Ignore if using Docker **)
 
 ```
 
