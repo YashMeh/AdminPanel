@@ -6,6 +6,9 @@ import ProjectList from './projectComponents/ProjectList';
 import AddProject from './projectComponents/AddProject';
 import NavBar from './NavBar';
 
+/*
+This is the main dashboard component
+*/
 class DashBoard extends Component{
     
     constructor()
@@ -84,4 +87,7 @@ class DashBoard extends Component{
     }
 }
 
+/*
+Using an higher order component to preven unauthorised access
+*/
 export default withAuth(DashBoard)

@@ -2,6 +2,9 @@ import React from 'react';
 import "../Styling/DeviceList.css";
 import {Link} from 'react-router-dom';
 
+/*
+This component is used to render the list of devices
+*/
 const DeviceList=(props)=>{
     const dList=props.devices.map((device)=>{
         return (

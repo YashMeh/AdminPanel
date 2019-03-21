@@ -3,6 +3,9 @@ import {withRouter} from 'react-router-dom';
 import AuthServices from './AuthServices/AuthServices';
 import './Styling/NavBar.css';
 
+/*
+This is the NavBar component
+*/
 class NavBar extends Component{
     constructor()
     {

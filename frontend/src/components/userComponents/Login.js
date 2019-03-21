@@ -1,5 +1,9 @@
 import React,{Component} from 'react';
 import '../Styling/Login.css';
+/*
+This component gets rendered during the login of a user
+*/
+
 class Login extends Component{
     state={email:'',password:''}
     onSubmitListener=(event)=>{

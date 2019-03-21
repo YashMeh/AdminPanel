@@ -6,6 +6,10 @@ import DeviceList from '../deviceComponents/DeviceList';
 import AddDevice from '../deviceComponents/AddDevice';
 import NavBar from '../NavBar';
 
+/*
+This compenent manages the list of devices of the particular project
+*/
+
 class Project extends Component{
     
     constructor(props)

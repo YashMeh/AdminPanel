@@ -1,6 +1,11 @@
 import React,{Component} from 'react';
 import '../Styling/AddDevice.css';
 
+/*
+This component will be rendered when the user wants to add 
+a new device to his dashboard
+*/
+
 class AddDevice extends Component{
     state={name:'',pubkey:''}
     handleChange=(e)=>{
@@ -12,6 +17,7 @@ class AddDevice extends Component{
     }
     handleSubmit=(e)=>{
         e.preventDefault();
+        //Passing the state to the parent component
         this.props.onSubmit(this.state);
     }
     render()

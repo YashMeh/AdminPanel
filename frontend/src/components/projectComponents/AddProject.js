@@ -1,5 +1,10 @@
 import React,{Component} from 'react';
 
+/*
+This component gets rendered when the user wants to add
+a project.
+*/
+
 class AddProject extends Component{
     state={name:''}
     handleChange=(e)=>{

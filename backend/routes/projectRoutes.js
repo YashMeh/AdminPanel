@@ -33,6 +33,7 @@ router.delete("/:userId/delete/:projectId",jwtVerify,(req,res)=>{
     var projectId=req.params.projectId;
     User.findById(userId).then((user)=>{
         user.projects.remove(projectId);
+        console.log(user)
         user.save().then((pr)=>{
             res.json("Deleted");
         })

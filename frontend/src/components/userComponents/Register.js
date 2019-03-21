@@ -1,5 +1,9 @@
 import React,{Component} from 'react';
 import '../Styling/Register.css';
+
+/*
+This component gets rendered when the user wants to register
+*/
 class Register extends Component{
     state={username:'',email:'',password:''}
     onSubmitListener=(event)=>{

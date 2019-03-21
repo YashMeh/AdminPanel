@@ -1,6 +1,11 @@
 import axios from 'axios';
 import decode from 'jwt-decode';
 
+/*
+This class handles all the authentication stuff, it can be used by
+calling specific functions through it's object
+*/
+
 class AuthServices{
     
     register=async (name,email,password)=>{

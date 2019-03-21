@@ -3,6 +3,10 @@ import {Link} from 'react-router-dom';
 import '../Styling/ProjectList.css';
 import AuthServices from '../AuthServices/AuthServices';
 
+/*
+This component displays the list of projects
+*/
+
 const ProjectList=(props)=>{
     const userId=new AuthServices().getProfile().id;
 

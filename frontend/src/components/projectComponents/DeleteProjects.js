@@ -2,7 +2,10 @@ import React,{Component} from 'react';
 import withAuth from '../AuthServices/withAuth';
 import AuthServices from '../AuthServices/AuthServices';
 import axios from 'axios';
-
+import Spinner from '../Spinner';
+/*
+This component is triggered when the user deletes a project
+*/
 class DeleteProjects extends Component{
     constructor(props)
     {
@@ -14,18 +17,24 @@ class DeleteProjects extends Component{
     componentWillMount=async ()=>{
         const { match: { params } } = this.props;
         const userId=this.Auth.getProfile().id;
-        var response=await axios.delete(`http://localhost:8080/project/${userId}/delete/${params.projectId}`)
+        var response=await axios.delete(`http://localhost:8080/project/${userId}/delete/${params.projectId}`,{
+            headers:{
+                Authorization:this.Auth.getToken()
+            }
+        })
         this.setState({message:response});
         
     }
     renderHandler=()=>{
         if(this.state.message===null)
         {
-            return(<div>Deleting</div>)
+            return(<div><Spinner /></div>)
         }
         else
         {
+            return(
             this.props.history.replace("/dashboard")
+            )
         }
     }
     render()
