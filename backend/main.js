@@ -10,6 +10,10 @@ const morgan = require('morgan');
 dotenv.config();
 
 //Database URI configuration 
+/*
+Use the given URI from the environment file if given,
+or else use the uri for docker
+*/
 const URI=process.env.URI || "mongodb://mongo:27017/senzAdmin";
 mongoose.connect(URI,{useNewUrlParser:true}).then((e)=>{
     console.log("Database Connected");
