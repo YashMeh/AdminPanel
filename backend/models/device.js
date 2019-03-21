@@ -9,6 +9,14 @@ var deviceSchema=new mongoose.Schema({
         required:true,
         type:String
     },
+    project:{
+        id:{
+			type:mongoose.Schema.Types.ObjectId,
+			ref:"project"
+        }
+
+        
+    },
     date:{type:Date,default:Date.now}
     
 })

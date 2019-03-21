@@ -1,5 +1,6 @@
 import React from 'react';
 import "../Styling/DeviceList.css";
+import {Link} from 'react-router-dom';
 
 const DeviceList=(props)=>{
     const dList=props.devices.map((device)=>{
@@ -13,13 +14,17 @@ const DeviceList=(props)=>{
             <div className="meta">Bytes Sent:25 </div>
         </div> 
         <div className="extra content">
-            <button className="ui inverted primary button">
+            <Link to="/err">
+            <button className="ui inverted green button">
             Connect
             </button>
-            <button className="ui inverted red button" 
+            </Link>
+            <Link to="/err" >
+            <button className="ui inverted primary button" 
             style={{marginLeft:"25%"}}
-            >Delete
+            >Open
             </button>
+            </Link>
             </div>   
         </div>
 

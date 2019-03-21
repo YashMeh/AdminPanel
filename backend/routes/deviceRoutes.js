@@ -3,31 +3,12 @@ const router=express.Router();
 const jwtVerify=require("./verifyTokens");
 const Project=require("../models/project");
 const Device=require("../models/device");
-const User=require("../models/user");
-var giveDeviceDet=(arr)=>{
-    var deviceDet=[];
-    return new Promise((resolve,reject)=>{
-        arr.map((element,index,arr)=>{
-            Device.findById(element).then((device)=>{
-                deviceDet.push(device)
-                if(deviceDet.length===arr.length)
-            {
-                resolve(deviceDet)
-            }
-            })
-            
-        })
-    })
-    
-}
+
 
 //Get all the devices of a project
 router.get("/:projectId",jwtVerify,(req,res)=>{
-    var projectId=req.params.projectId;
-    Project.findById(projectId).then((foundProject)=>{
-        giveDeviceDet(foundProject.devices).then((deviceDet)=>{
-            res.json(deviceDet)
-        })
+    Project.findById(req.params.projectId).populate("devices").exec((err,project)=>{
+        res.json(project.devices)
     })
 })
 
@@ -41,19 +22,22 @@ router.post("/:projectId",jwtVerify,(req,res)=>{
             project.save();
             res.json(newDevice)
         })
+        newDevice.project.id=req.params.projectId;
+        newDevice.save()
     })
 })
-//Delete a particular project
-router.delete("/:userId/delete/:projectId",(req,res)=>{
-    User.findById(req.params.userId).then((foundUser)=>{
-        foundUser.projects.pop(req.params.projectId)
-        foundUser.save()
-        Project.findByIdAndDelete(req.params.projectId).then((delProject)=>{
-            res.json(delProject)
+//Delete the device of a particular project
+router.delete("/delete/:deviceId",(req,res)=>{
+    Device.findByIdAndDelete(req.params.deviceId).then((deletedDevice)=>{
+        Project.findById(deletedDevice.project.id).then((foundProject)=>{
+            foundProject.devices.remove(req.params.deviceId)
+            foundProject.save().then((pr)=>{
+                res.json("Deleted")
+            })
         })
-        console.log("Deleted from the user")
+        
     })
-    
 })
+
 
 module.exports=router

@@ -6,6 +6,7 @@ import AuthServices from './AuthServices/AuthServices';
 import DashBoard from './DashBoard';
 import Project from './projectComponents/Project';
 import Error from './Error'
+import DeleteProjects from './projectComponents/DeleteProjects';
 
 class App extends Component{
    constructor(){
@@ -40,6 +41,7 @@ class App extends Component{
                      <Route exact path="/dashboard" component={DashBoard} />
                      <Route exact path="/device/:projectId" component={Project} />
                      <Route exact path="/err" component={Error} />
+                     <Route exact path="/project/:userId/delete/:projectId" component={DeleteProjects} />
                      
             </Switch>
             </div>

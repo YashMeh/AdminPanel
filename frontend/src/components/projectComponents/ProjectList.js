@@ -1,8 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import '../Styling/ProjectList.css';
+import AuthServices from '../AuthServices/AuthServices';
 
 const ProjectList=(props)=>{
+    const userId=new AuthServices().getProfile().id;
+
     const pList=props.projects.map((project)=>{
         
         return (
@@ -16,7 +19,7 @@ const ProjectList=(props)=>{
             Open
             </button>
             </Link>
-            <Link to="/err">
+            <Link to={`/project/${userId}/delete/${project._id}`}>
             <button className="ui inverted red button" 
             style={{marginLeft:"25%"}}
             >Delete

@@ -4,28 +4,11 @@ const jwtVerify=require("./verifyTokens");
 const Project=require("../models/project");
 const User=require("../models/user");
 
-var giveDetailsOfProject=(arr)=>{
-    var projectDetails=[]
-    return new Promise((resolve,reject)=>{
-        arr.map((element,index,arr)=>{
-            Project.findById(element).then((project)=>{
-                projectDetails.push(project)
-                if(projectDetails.length===arr.length)
-                {
-                    resolve(projectDetails)
-                }
-            })  
-           
-        })
-    })
-}
 //Get all the projects of a particular user
 router.get("/:userid/all",jwtVerify,(req,res)=>{
-    var userId=req.params.userid;
-    User.findById(userId).then((user)=>{
-        giveDetailsOfProject(user.projects).then((response)=>{
-            res.json(response)
-        })
+    
+    User.findById(req.params.userid).populate("projects").exec((err,user)=>{
+        res.json(user.projects)
     })
         
 
@@ -39,12 +22,24 @@ router.post("/:userid/new",jwtVerify,(req,res)=>{
         Project.create(project).then((newProject)=>{
             user.projects.push(newProject);
             user.save();
-            var userObj={name:user.name,email:user.email,projects:user.projects}
-            res.json(userObj)
+            res.json(newProject)
         })
     })
 })
 
+//Delete a particular project of a particular user
+router.delete("/:userId/delete/:projectId",(req,res)=>{
+    var userId=req.params.userId;
+    var projectId=req.params.projectId;
+    User.findById(userId).then((user)=>{
+        user.projects.remove(projectId);
+        user.save().then((pr)=>{
+            res.json("Deleted");
+        })
+    })
+
+    
+})
 
 
 module.exports=router;
