@@ -9,7 +9,7 @@ This is a project to implement senz Admin panel .
 
 ### Run using docker (Once dependencies are installed)
 
-- Remove the 'dbURI' option from dev.json in the config directory 
+- Remove the 'dbURI' option from dev.json in the config directory. 
 
 - Attach to containers using
 
