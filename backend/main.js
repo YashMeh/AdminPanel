@@ -3,18 +3,17 @@ const app = express();
 const mongoose=require("mongoose");
 const bodyParser=require("body-parser");
 const port=process.env.PORT || 8080;
-const dotenv=require("dotenv");
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-dotenv.config();
+const config=require("config")
 
 //Database URI configuration 
 /*
 Use the given URI from the environment file if given,
 or else use the uri for docker
 */
-const URI=process.env.URI || "mongodb://mongo:27017/senzAdmin";
+const URI=config.dbURI || "mongodb://mongo:27017/senzAdmin";
 mongoose.connect(URI,{useNewUrlParser:true}).then((e)=>{
     console.log("Database Connected");
 }).catch((err)=>{
@@ -32,8 +31,13 @@ app.use(bodyParser.urlencoded({extended:true}))
 // enable all CORS requests
 app.use(cors());
 
-// log HTTP requests
-app.use(morgan('combined'));
+//If executing in test environment then prevent logging
+if(config.util.getEnv('NODE_ENV')!=='test')
+{
+    // log HTTP requests
+    app.use(morgan('combined'));
+}
+
 
 //Requiring Routes
 const userRoutes=require("./routes/userRoutes")
@@ -51,3 +55,5 @@ app.listen(port,(err)=>{
     throw err;
     console.log("Server running at port "+port);
 })
+
+module.exports = app; // for testing

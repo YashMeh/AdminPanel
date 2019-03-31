@@ -3,13 +3,14 @@ const router=express.Router();
 const User=require("../models/user");
 const bcrypt = require('bcryptjs');
 const jwt=require("jsonwebtoken");
+const config=require('config')
 
 //Register a new user
 router.post("/register",function(req,res){
     var {name,email,password}=req.body;
     if((name=='' || email=='' || password=='')||(name==undefined || email==undefined || password==undefined))
     {
-      res.send("There was a problem registering the user").sendStatus(500);
+      res.status(500).json({auth:false});
     }
     else{
     var hashedPass=bcrypt.hashSync(req.body.password,8);
@@ -19,11 +20,11 @@ router.post("/register",function(req,res){
         password:hashedPass,
     },function(err,user){
         if(err)
-        res.send("There was a problem registering the user").sendStatus(500);
-        var token = jwt.sign({id:user._id,name:user.name}, process.env.secretKey, {
+        res.status(500).json({auth:false});
+        var token = jwt.sign({id:user._id,name:user.name}, config.secretKey, {
             expiresIn: 86400 // expires in 24 hours
           });
-          res.status(200).send("Registered");
+          res.status(200).json({auth:true});
 
     })
   }
@@ -35,7 +36,7 @@ router.post('/login', function(req, res) {
     console.log(password)
     if((email=='' || password=='')||(email==undefined || password==undefined))
     {
-      res.send("There was a problem registering the user").status(500);
+      res.status(500).json({auth:false});
     }
     else{
     User.findOne({ email: req.body.email }, function (err, user) {
@@ -43,7 +44,7 @@ router.post('/login', function(req, res) {
       if (!user) return res.status(404).send('No user found.');
       var passwordIsValid = bcrypt.compareSync(req.body.password, user.password);
       if (!passwordIsValid) return res.status(401).send({ auth: false, token: null });
-      var token = jwt.sign({id:user._id,name:user.name}, process.env.secretKey, {
+      var token = jwt.sign({id:user._id,name:user.name}, config.secretKey, {
         expiresIn: 86400 // expires in 24 hours
       });
       res.status(200).send({ auth: true, token: token});
