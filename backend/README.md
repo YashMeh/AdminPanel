@@ -10,12 +10,20 @@ npm install
 ```
 ### Pre Running Step
 
-- Create a .env file in the /backend directory and add.
+- Modify the dev.json,test.json and production.json in the config directory.
 
 ```javascript
 secretKey='YOUR_SECRET_KEY'
-URI      ='YOUR_MONGODB_URI' //Ignore if using Docker
+dbURI      ='YOUR_MONGODB_URI' //Ignore if using Docker,
+port:8080
 ```
+
+### Testing
+
+```bash
+npm test
+```
+![test pic](https://raw.githubusercontent.com/YashMeh/AdminPanel/master/backend/test.png?token=AfyO9PiyFswFvAGoEz8sebcfEVmD2_lBks5cqjlgwA%3D%3D)
 
 ### Running
 
@@ -31,8 +39,9 @@ Registration = BaseURL/register
 
 Login        =BaseURL/login
 
-Dashboard    =BaseURL/dashboard
+Project    =BaseURL/project
 
+Device    =BaseURL/device
 
 
 
