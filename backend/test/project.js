@@ -59,7 +59,7 @@ describe('Projects', () => {
                             res.body.should.be.a('object');
                             res.body.should.have.property('auth').eql(true);
                             res.body.should.have.property('token');
-                            let project = new Project({name:'Project1'});
+                            let project = new Project({name:'TestProject'});
                 project.save((err, project) => {
                     chai.request(server)
                   .get('/device/' + project.id)
