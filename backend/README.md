@@ -23,7 +23,6 @@ port:8080
 ```bash
 npm test
 ```
-![test pic](https://raw.githubusercontent.com/YashMeh/AdminPanel/master/backend/test.png?token=AfyO9PiyFswFvAGoEz8sebcfEVmD2_lBks5cqjlgwA%3D%3D)
 
 ### Running
 
