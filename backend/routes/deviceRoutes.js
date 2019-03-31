@@ -8,7 +8,7 @@ const Device=require("../models/device");
 //Get all the devices of a project
 router.get("/:projectId",jwtVerify,(req,res)=>{
     Project.findById(req.params.projectId).populate("devices").exec((err,project)=>{
-        res.json(project.devices)
+        res.status(200).json(project.devices)
     })
 })
 
@@ -20,7 +20,7 @@ router.post("/:projectId",jwtVerify,(req,res)=>{
         Project.findById(projectId).then((project)=>{
             project.devices.push(newDevice);
             project.save();
-            res.json(newDevice)
+            res.status(200).json(newDevice)
         })
         newDevice.project.id=req.params.projectId;
         newDevice.save()

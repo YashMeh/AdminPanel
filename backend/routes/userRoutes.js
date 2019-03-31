@@ -33,7 +33,6 @@ router.post("/register",function(req,res){
 //Login an existing user
 router.post('/login', function(req, res) {
     var {email,password}=req.body;
-    console.log(password)
     if((email=='' || password=='')||(email==undefined || password==undefined))
     {
       res.status(500).json({auth:false});
