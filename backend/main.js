@@ -31,6 +31,8 @@ app.use(bodyParser.urlencoded({extended:true}))
 // enable all CORS requests
 app.use(cors());
 
+app.use(express.static('public'));
+
 //If executing in test environment then prevent logging
 if(config.util.getEnv('NODE_ENV')!=='test')
 {

@@ -21,7 +21,11 @@ var userSchema=new mongoose.Schema({
     projects:[{
         type:mongoose.Schema.Types.ObjectId,
         ref:"project"
-    }]
+    }],
+    Date:{
+        type:Date,
+        default:Date.now()
+    }
     
 })
 

@@ -5,6 +5,31 @@ const bcrypt = require('bcryptjs');
 const jwt=require("jsonwebtoken");
 const config=require('config')
 
+/**
+ * @api {post} api/register Register a new user
+ * @apiGroup Users
+ * @apiParam {String} name username
+ * @apiParam {String} email email
+ * @apiParam {String} password password
+ * @apiParamExample {json} Input
+ *    {
+ *      "name": "Yash",
+ *      "email": "yash123@gmail.com",
+ *      "password":"yash123"
+ *    }
+ * @apiSuccess {String} token token
+ * @apiSuccess {Boolean} auth authentication state
+ * @apiSuccessExample {json} Success
+ *    HTTP/1.1 200 OK
+ *    {
+ *      "auth": true
+ *    }
+ * @apiErrorExample {json} Register error
+ *    HTTP/1.1 500 Internal Server Error
+ *    {
+ *      "auth":false
+ *    }
+ */
 //Register a new user
 router.post("/register",function(req,res){
     var {name,email,password}=req.body;
@@ -30,6 +55,40 @@ router.post("/register",function(req,res){
   }
 })
 
+/**
+ * @api {post} api/login Login a new User
+ * @apiGroup Users
+ * @apiParam {String} email email
+ * @apiParam {String} password password
+ * @apiParamExample {json} Input
+ *    {
+ *      "email": "yash123@gmail.com",
+ *      "password":"yash123"
+ *    }
+ * @apiSuccess {String} token token
+ * @apiSuccess {Boolean} auth authentication state
+ * @apiSuccessExample {json} Success
+ *    HTTP/1.1 200 OK
+ *    {
+ *      "auth": true,
+ *      "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVjYTUxMzFmOTUzYmNmMGNhOThlN2Q3OCIsIm5hbWUiOiJ5YXNoIiwiaWF0IjoxNTU0MzIyNDQyLCJleHAiOjE1NTQ0MDg4NDJ9.9lQ_IN0AZjfcJoGh-f9F8HmG3Yt-RghMGhLxqGpYJJs"
+ *    }
+ * @apiErrorExample {json} Login error
+ *    HTTP/1.1 500 Internal Server Error
+ *    {
+ *      "Error on the server."
+ *    }
+ *    HTTP/1.1 404 Not Found
+ *    {
+ *      "No user found"
+ *    }
+ *    HTTP/1.1 401
+ *    {
+ *      "auth":false,
+ *       "token":null
+ *    }
+ 
+ */
 //Login an existing user
 router.post('/login', function(req, res) {
     var {email,password}=req.body;
