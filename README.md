@@ -1,7 +1,7 @@
 ### SenZ Admin Panel
 This is the admin panel for the senz server, dedicated to ease device managemanet on the senz server.
 
-[![API](https://img.shields.io/badge/API-documentation-success.svg?style=for-the-badge&logo=appveyor)](https://senzadmin.herokuapp.com/apidoc/) [![linkedIn](https://img.shields.io/badge/contact%20me-linkedIn-green.svg?style=for-the-badge&logo=appveyor)](https://www.linkedin.com/in/yash-mehrotra-ab2573154/) ![Docker](https://img.shields.io/badge/image%20size-397%20MB-blue.svg) ![Tests](https://img.shields.io/badge/tests-6%20passing-red.svg)
+[![API](https://img.shields.io/badge/API-documentation-success.svg?style=for-the-badge&logo=appveyor)](https://senzadmin.herokuapp.com/apidoc/) [![linkedIn](https://img.shields.io/badge/contact%20me-linkedIn-green.svg?style=for-the-badge&logo=appveyor)](https://www.linkedin.com/in/yash-mehrotra-ab2573154/) ![Docker](https://img.shields.io/badge/image%20size-397%20MB-blue.svg) ![Tests](https://img.shields.io/badge/tests-6%20passing-red.svg) ![NodeV](https://img.shields.io/badge/node-v11.8.0-brightgreen.svg) ![npmV](https://img.shields.io/badge/npm-6.8.0-brightgreen.svg)
 
 
 ### Install frontend and backend dependencies using their respective readme
