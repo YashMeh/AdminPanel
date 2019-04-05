@@ -33,4 +33,4 @@ npm run dev
 ```
 
 ### Documentation
-API Documentation - https://github.com/YashMeh/AdminPanel
+API Documentation - https://senzadmin.herokuapp.com/apidoc/
