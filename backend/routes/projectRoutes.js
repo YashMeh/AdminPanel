@@ -1,8 +1,8 @@
-const express=require("express");
-const router=express.Router();
-const jwtVerify=require("./verifyTokens");
-const Project=require("../models/project");
-const User=require("../models/user");
+const express = require("express");
+const router = express.Router();
+const jwtVerify = require("./verifyTokens");
+const Project = require("../models/project");
+const User = require("../models/user");
 
 
 /**
@@ -36,12 +36,12 @@ const User=require("../models/user");
  *    HTTP/1.1 500 Internal Server Error
  */
 //Get all the projects of a particular user
-router.get("/:userid/all",jwtVerify,(req,res)=>{
-    
-    User.findById(req.params.userid).populate("projects").exec((err,user)=>{
+router.get("/:userid/all", jwtVerify, (req, res) => {
+
+    User.findById(req.params.userid).populate("projects").exec((err, user) => {
         res.json(user.projects)
     })
-        
+
 
 })
 
@@ -78,12 +78,14 @@ router.get("/:userid/all",jwtVerify,(req,res)=>{
  *    }
  */
 //Post a new project for a particular user
-router.post("/:userid/new",jwtVerify,(req,res)=>{
-    var userId=req.params.userid;
-    var projectName=req.body.name;
-    var project={name:projectName};
-    User.findById(userId).then((user)=>{
-        Project.create(project).then((newProject)=>{
+router.post("/:userid/new", jwtVerify, (req, res) => {
+    var userId = req.params.userid;
+    var projectName = req.body.name;
+    var project = {
+        name: projectName
+    };
+    User.findById(userId).then((user) => {
+        Project.create(project).then((newProject) => {
             user.projects.push(newProject);
             user.save();
             res.json(newProject)
@@ -110,19 +112,19 @@ router.post("/:userid/new",jwtVerify,(req,res)=>{
  *    HTTP/1.1 500 Internal Server Error
  */
 //Delete a particular project of a particular user
-router.delete("/:userId/delete/:projectId",jwtVerify,(req,res)=>{
-    var userId=req.params.userId;
-    var projectId=req.params.projectId;
-    User.findById(userId).then((user)=>{
+router.delete("/:userId/delete/:projectId", jwtVerify, (req, res) => {
+    var userId = req.params.userId;
+    var projectId = req.params.projectId;
+    User.findById(userId).then((user) => {
         user.projects.remove(projectId);
         console.log(user)
-        user.save().then((pr)=>{
+        user.save().then((pr) => {
             res.json("Deleted");
         })
     })
 
-    
+
 })
 
 
-module.exports=router;
+module.exports = router;

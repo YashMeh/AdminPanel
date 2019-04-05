@@ -1,8 +1,8 @@
-const express=require("express");
-const router=express.Router();
-const jwtVerify=require("./verifyTokens");
-const Project=require("../models/project");
-const Device=require("../models/device");
+const express = require("express");
+const router = express.Router();
+const jwtVerify = require("./verifyTokens");
+const Project = require("../models/project");
+const Device = require("../models/device");
 
 /**
  * @api {get} device/:projectId Get all the devices of a project
@@ -39,8 +39,8 @@ const Device=require("../models/device");
  *    HTTP/1.1 500 Internal Server Error
  */
 //Get all the devices of a project
-router.get("/:projectId",jwtVerify,(req,res)=>{
-    Project.findById(req.params.projectId).populate("devices").exec((err,project)=>{
+router.get("/:projectId", jwtVerify, (req, res) => {
+    Project.findById(req.params.projectId).populate("devices").exec((err, project) => {
         res.status(200).json(project.devices)
     })
 })
@@ -75,7 +75,7 @@ router.get("/:projectId",jwtVerify,(req,res)=>{
  *   "pubkey": "123@#",
  *   "date": "2019-04-04T10:08:33.025Z",
  *   "__v": 0
-*  }
+ *  }
  * @apiErrorExample {json} Register error
  *    HTTP/1.1 500 Internal Server Error
  *    {
@@ -83,16 +83,16 @@ router.get("/:projectId",jwtVerify,(req,res)=>{
  *    }
  */
 //Post the device for a specific project
-router.post("/:projectId",jwtVerify,(req,res)=>{
-    var device=req.body;
-    var projectId=req.params.projectId;
-    Device.create(device).then((newDevice)=>{
-        Project.findById(projectId).then((project)=>{
+router.post("/:projectId", jwtVerify, (req, res) => {
+    var device = req.body;
+    var projectId = req.params.projectId;
+    Device.create(device).then((newDevice) => {
+        Project.findById(projectId).then((project) => {
             project.devices.push(newDevice);
             project.save();
             res.status(200).json(newDevice)
         })
-        newDevice.project.id=req.params.projectId;
+        newDevice.project.id = req.params.projectId;
         newDevice.save()
     })
 })
@@ -115,17 +115,17 @@ router.post("/:projectId",jwtVerify,(req,res)=>{
  *    HTTP/1.1 500 Internal Server Error
  */
 //Delete a particular device
-router.delete("/delete/:deviceId",jwtVerify,(req,res)=>{
-    Device.findByIdAndDelete(req.params.deviceId).then((deletedDevice)=>{
-        Project.findById(deletedDevice.project.id).then((foundProject)=>{
+router.delete("/delete/:deviceId", jwtVerify, (req, res) => {
+    Device.findByIdAndDelete(req.params.deviceId).then((deletedDevice) => {
+        Project.findById(deletedDevice.project.id).then((foundProject) => {
             foundProject.devices.remove(req.params.deviceId)
-            foundProject.save().then((pr)=>{
+            foundProject.save().then((pr) => {
                 res.json("Deleted")
             })
         })
-        
+
     })
 })
 
 
-module.exports=router
+module.exports = router

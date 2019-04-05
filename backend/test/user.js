@@ -1,5 +1,5 @@
-const mongoose=require("mongoose")
-const User=require("../models/user")
+const mongoose = require("mongoose")
+const User = require("../models/user")
 
 const chai = require('chai');
 const chaiHttp = require('chai-http');
@@ -10,9 +10,9 @@ chai.use(chaiHttp);
 describe('Users', () => {
     before(function() {
         // run and erase the test database
-        User.deleteMany({}).then((p)=>{
+        User.deleteMany({}).then((p) => {
             console.log("Cleared the database")
-        }).catch((err)=>{
+        }).catch((err) => {
             throw err;
         })
     });
@@ -23,49 +23,49 @@ describe('Users', () => {
                 email: "gargi@gmail.com",
                 name: "Gargi"
             }
-          chai.request(server)
-              .post('/api/register')
-              .send(user)
-              .end((err, res) => {
+            chai.request(server)
+                .post('/api/register')
+                .send(user)
+                .end((err, res) => {
                     res.should.have.status(500);
                     res.body.should.be.a('object');
                     res.body.should.have.property('auth').eql(false);
-                done();
-              });
+                    done();
+                });
         });
         it('it should REGISTER a user ', (done) => {
             let user = {
                 email: "gargi@gmail.com",
                 name: "Gargi",
-                password:'gargi123'
+                password: 'gargi123'
             }
-          chai.request(server)
-              .post('/api/register')
-              .send(user)
-              .end((err, res) => {
+            chai.request(server)
+                .post('/api/register')
+                .send(user)
+                .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
                     res.body.should.have.property('auth').eql(true);
-                done();
-              });
+                    done();
+                });
         });
         it('it should LOGIN a user ', (done) => {
             let user = {
                 email: "gargi@gmail.com",
-                password:'gargi123'
+                password: 'gargi123'
             }
-          chai.request(server)
-              .post('/api/login')
-              .send(user)
-              .end((err, res) => {
+            chai.request(server)
+                .post('/api/login')
+                .send(user)
+                .end((err, res) => {
                     res.should.have.status(200);
                     res.body.should.be.a('object');
                     res.body.should.have.property('auth').eql(true);
                     res.body.should.have.property('token');
-                done();
-              });
+                    done();
+                });
         });
-  
+
     });
 
 });
