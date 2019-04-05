@@ -1,4 +1,6 @@
 ## Description
+[![API](https://img.shields.io/badge/API-documentation-success.svg?style=for-the-badge&logo=appveyor)](https://senzadmin.herokuapp.com/apidoc/) ![Tests](https://img.shields.io/badge/tests-6%20passing-red.svg) ![NodeV](https://img.shields.io/badge/node-v11.8.0-brightgreen.svg) ![npmV](https://img.shields.io/badge/npm-6.8.0-brightgreen.svg)
+
 This is the backend part of the senz admin panel built using NodeJS.
 It uses JWT for authentication,morgan for logging,helmet for security and express as a framework.
 
@@ -30,18 +32,5 @@ npm test
 npm run dev
 ```
 
-### Endpoints
-
-BaseURL = http://localhost:8080
-
-Registration = BaseURL/register
-
-Login        =BaseURL/login
-
-Project    =BaseURL/project
-
-Device    =BaseURL/device
-
-
-
-
+### Documentation
+API Documentation - https://senzadmin.herokuapp.com/apidoc/
